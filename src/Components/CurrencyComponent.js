@@ -2,16 +2,18 @@ import './CurrencyComponent.css'
 
 const CurrencyComponent = (props) => {
 
-    const { currencyChoice, selectCurrency } = props //รับ props ตามชื่อที่ตั้ง
+    const { currencyChoice, selectCurrency, changeCurrency, amount, onChangeAmount } = props //รับ props ตามชื่อที่ตั้ง
 
     return (
         <div className="currency">
-            <select value={selectCurrency}>
+            <select value={selectCurrency} onChange={changeCurrency}>
                 {currencyChoice.map((choice) =>
                     <option key={choice} value={choice}>{choice}</option>
                 )}
             </select>
-            <input type="number" />
+            <input type="number"
+                value={amount}
+                onChange={onChangeAmount} />
         </div>
     )
 }
